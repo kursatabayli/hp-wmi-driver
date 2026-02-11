@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="hwmon", DRIVERS=="hp-wmi", RUN+="/bin/sh -c 'chgrp hpfan /sys%p/pwm* && chmod 664 /sys%p/pwm*'"
