@@ -74,7 +74,9 @@ sudo usermod -aG hpfan $USER
 The installer places a rule file at `/etc/udev/rules.d/99-hp-fan-control.rules`. This rule triggers whenever the `hp-wmi` driver is loaded:
 
 ```
-ACTION=="add", SUBSYSTEM=="hwmon", DRIVERS=="hp-wmi", RUN+="/bin/sh -c 'chgrp hpfan /sys%p/pwm* && chmod 664 /sys%p/pwm*'"
+ACTION=="add|change", SUBSYSTEM=="hwmon", ATTRS{name}=="hp", GROUP="hpfan", MODE="0664"
+
+ACTION=="add|change", SUBSYSTEM=="hwmon", KERNEL=="hwmon*", ATTRS{name}=="hp", RUN+="/bin/sh -c 'chmod 664 /sys/class/hwmon/%k/pwm* && chgrp hpfan /sys/class/hwmon/%k/pwm*'"
 ```
 
 This ensures that the PWM control files in `/sys/class/hwmon/...` are owned by the `hpfan` group and are writable by group members. This eliminates the need for unsafe `chmod 777` or running GUI apps as root.
