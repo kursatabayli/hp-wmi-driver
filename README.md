@@ -22,6 +22,9 @@ This driver is a dependency for the **[HP Fan Control GUI](https://github.com/ku
 
 This driver is based on the work by **Krishna Chomal** and other contributors in the Linux Kernel `platform-drivers-x86` tree.
 
+* **[PATCH] [hp-wmi: add manual fan control for Victus S models](https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git/commit/drivers/platform/x86/hp/hp-wmi.c?h=for-next&id=46be1453e6e61884b4840a768d1e8ffaf01a4c1c)** *(Enables the raw PWM control interface)*
+* **[PATCH] [hp-wmi: implement fan keep-alive](https://git.kernel.org/pub/scm/linux/kernel/git/pdx86/platform-drivers-x86.git/commit/drivers/platform/x86/hp/hp-wmi.c?h=for-next&id=c203c59fb5de1b1b8947d61176e868da1130cbeb)** *(Ensures safety/stability during manual operation)*
+
 - **Core Logic:** Based on `hp-wmi` patches for manual fan control on Victus/Omen devices.
 - **My Contribution:** Added a specific patch to **split CPU and GPU fan controls**, enabling independent regulation.
 
