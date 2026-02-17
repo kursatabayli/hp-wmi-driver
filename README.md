@@ -5,7 +5,7 @@
 
 This repository contains a modified Linux kernel module (`hp-wmi`) that enables **manual fan control** (PWM) for **HP Victus** laptops. It exposes the raw fan control interface via standard `hwmon` sysfs paths, allowing users to control CPU and GPU fans independently.
 
-This driver is a dependency for the **[HP Fan Control GUI](https://github.com/kursatabayli/hp-fan-control)** application but can also be used standalone or with other tools like **CoolerControl**.
+This driver is a dependency for the **[hp-fan-control](https://github.com/kursatabayli/hp-fan-control)** application but can also be used standalone or with other tools like **CoolerControl**.
 
 ---
 
